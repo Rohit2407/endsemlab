@@ -1,1 +1,47 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+
+<h2>Login Page</h2>
+
+<form id="loginForm">
+    <!-- Dropdown to select User Type -->
+    User Type: 
+    <select id="userType">
+        <option value="student">Student</option>
+        <option value="admin">Admin</option>
+    </select><br><br>
+
+    Username: <input type="text" id="username" required><br><br>
+    Password: <input type="password" id="password" required><br><br>
+    
+    <button type="button" onclick="checkLogin()">Login</button>
+</form>
+
+<script>
+function checkLogin() {
+    // Get values from the form
+    const role = document.getElementById('userType').value;
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+
+    if (role === "admin") {
+        // Specific check for Admin
+        if (user === "Admin" && pass === "123") {
+            alert("Admin Login Successful!");
+            // window.location.href = "admin_dashboard.html"; // Redirect example
+        } else {
+            alert("Invalid Admin credentials!");
+        }
+    } else {
+        // Logic for Student (e.g., allow any non-empty input for now)
+        alert("Student Login Successful!");
+    }
+}
+</script>
+
+</body>
+</html>
